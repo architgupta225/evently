@@ -30,7 +30,7 @@ import { FileUploader } from "./FileUploader";
 import { createEvent } from "@/lib/actions/event.actions";
 
 type EventFormProps = {
-  userId?: string;
+  userId: string;
   type: "Create" | "Update";
   event?: IEvent;
   eventId?: string;
@@ -74,7 +74,7 @@ const EventForm = ({ userId , type, event, eventId }: EventFormProps) => {
       try {
         const newEvent = await createEvent({
           event: { ...values, imageUrl: uploadedImageUrl },
-          userId,
+          userId: userId ?? "",
           path: "/profile",
         });
 
